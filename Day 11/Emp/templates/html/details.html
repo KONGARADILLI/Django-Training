@@ -1,0 +1,23 @@
+{% extends 'html/header.html' %}
+{% load static %}
+{% block title %} Details {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row mt-5 mx-2 ">
+        <div class="card col-md-4 mx-2">
+            <h4 class="text-danger">Profile image</h4>
+            <img src="{% static 'images/123.png' %}" class="rounded-circle" height="250px" width="250px">
+        </div>
+        <div class="card col-md-7">
+            <h4 class="text-info">User details</h4>
+           <!--<h2><label class="text-warning">Username : {{d.f}} </label></h2> -->
+                <h2 class="text-warning">First Name : {{d.f}}</h2>
+                <h2 class="text-warning">Last Name : {{d.l}}</h2>
+                <h2 class="text-warning">Email : {{d.e}}</h2>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
