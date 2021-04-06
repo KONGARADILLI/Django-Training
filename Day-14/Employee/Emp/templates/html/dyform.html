@@ -1,0 +1,30 @@
+{% extends 'html/header.html' %}
+{% block title %} DYForm {% endblock %}
+{% block content %}
+<div class="container">
+	<div class="card col-md-5 mx-auto mt-4">
+		<h4 class="bg-warning text-center text-light my-2 border rounded">Registration</h4>
+		<div class="card-body">
+			<form method="POST">
+				{% csrf_token %}
+
+			<!--	{{tu.as_p}}
+				<input type="Submit" name="Register"> --->
+				<table class="table table-borderless mt-1">
+					{% for k in tu%}
+					<tr>
+						<td>{{k.label_tag}}</td>
+						<td>{{k}}</td>
+
+					</tr>
+					{% endfor %}
+				</table>
+				<input type="Submit" value="create" class="btn btn-success btn-block">
+			</form>
+		</div>
+		
+	</div>
+	
+</div>
+
+{% endblock %}
