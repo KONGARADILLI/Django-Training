@@ -1,0 +1,41 @@
+{% extends 'html/header.html' %}
+{% block title %}CRUD operation{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="card col-md-4 mx-auto">
+			<h3 class="p-3 bg-primary text-center text-white mt-3">Add user</h3>
+			<form method="POST">
+				{% csrf_token %}
+				<input type="text" name="username" class="form-control my-2" placeholder="Enter username">
+				<input type="password" name="password" class="form-control my-2" placeholder="Enter password ">
+				<input type="email" name="email" class="form-control my-2" placeholder="Enter email address">
+				<input type="number" name="age" class="form-control my-2" placeholder="Enter age">
+				<input type="submit" name="sub" class="form-control btn btn-success" value="Create">
+			</form>
+		</div>
+		<div class="card col-md-7 mx-2">
+			<h3 class="p-3 bg-danger text-center text-light mt-3">User details</h3>
+			<table class="table table-hover">
+				<tr class="bg-dark text-white">
+					<td>Sno</td>
+					<td>Username</td>
+					<td>Email id</td>
+					<td>Age</td>
+					<td>Actions</td>
+				</tr>
+				{% for i in info%}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{i.username}}</td>
+					<td>{{i.email}}</td>
+					<td>{{i.age}}</td>
+					<td><a href="" class="btn btn-info">update</a><a href="{% url 'delete' i.id %}" class= "btn btn-danger">Delete</a></td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
